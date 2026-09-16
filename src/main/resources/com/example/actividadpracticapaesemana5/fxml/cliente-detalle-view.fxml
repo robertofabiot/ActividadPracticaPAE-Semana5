@@ -30,7 +30,6 @@
                 <Insets top="30" right="30" bottom="30" left="30"/>
             </padding>
 
-            <!-- Foto -->
             <VBox alignment="CENTER" spacing="10">
                 <ImageView fx:id="imgFoto"
                            fitWidth="150" fitHeight="150"
@@ -38,7 +37,6 @@
                 <Label text="Fotografía"/>
             </VBox>
 
-            <!-- Datos -->
             <GridPane hgap="15" vgap="12">
                 <Label text="Nombre completo:" style="-fx-font-weight: bold;"
                        GridPane.rowIndex="0" GridPane.columnIndex="0"/>
