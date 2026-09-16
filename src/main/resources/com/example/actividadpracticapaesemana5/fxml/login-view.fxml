@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="450.0" prefWidth="380.0" spacing="20.0" style="-fx-background-color: #bce2f1; -fx-padding: 40 30 40 30;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.actividadpracticapaesemana5.controller.LoginController">
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="380.0" spacing="20.0" style="-fx-background-color: #bce2f1; -fx-padding: 40 30 40 30; -fx-font-family: 'Roboto Light'" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.actividadpracticapaesemana5.controller.LoginController">
     <children>
         <!-- Icono de usuario centrado y en la parte superior -->
         <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
@@ -26,10 +26,7 @@
                         <Image url="@../icons/usuarioField.png" />
                     </image>
                 </ImageView>
-                <TextField fx:id="txtUsuario" alignment="CENTER" promptText="Nombre de usuario" style="-fx-background-color: transparent; -fx-prompt-text-fill: #5a7a94; -fx-text-fill: #102a43; -fx-font-size: 13px;" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font name="JetBrainsMono NFM SemiBold" size="13.0" />
-               </font></TextField>
+                <TextField fx:id="txtUsuario" alignment="CENTER" promptText="Nombre de usuario" style="-fx-background-color: transparent; -fx-prompt-text-fill: #5a7a94; -fx-text-fill: #102a43; -fx-font-size: 13px;" HBox.hgrow="ALWAYS" />
             </children>
         </HBox>
 
@@ -50,9 +47,6 @@
             <VBox.margin>
                 <Insets top="15.0" />
             </VBox.margin>
-         <font>
-            <Font name="JetBrainsMono NFM SemiBold" size="13.0" />
-         </font>
         </Button>
     </children>
 </VBox>
