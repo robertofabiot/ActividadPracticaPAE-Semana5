@@ -1,4 +1,4 @@
-package com.example.fact_app.model;
+package com.example.actividadpracticapaesemana5.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class Cliente {
     private String ciudad;
     private LocalDate fechaNacimiento;
     private String tipoSolicitud;
-    private List serviciosInteres;
+    private List<String> serviciosInteres;
     private String rutaFotografia;
 
     public Cliente() {
@@ -20,7 +20,7 @@ public class Cliente {
 
     public Cliente(String nombres, String apellidos, String tipoCliente, String ciudad,
                    LocalDate fechaNacimiento, String tipoSolicitud,
-                   List serviciosInteres, String rutaFotografia) {
+                   List<String> serviciosInteres, String rutaFotografia) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.tipoCliente = tipoCliente;
@@ -44,6 +44,11 @@ public class Cliente {
             return "Ninguno";
         }
         return String.join(", ", serviciosInteres);
+    }
+
+    public String getFechaComoTexto() {
+        if (fechaNacimiento == null) return "";
+        return fechaNacimiento.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     // Getters y Setters
@@ -95,7 +100,7 @@ public class Cliente {
         this.tipoSolicitud = tipoSolicitud;
     }
 
-    public List getServiciosInteres() {
+    public List<String> getServiciosInteres() {
         return serviciosInteres;
     }
 
