@@ -43,7 +43,7 @@
         </HBox>
 
         <!-- Botón de Entrar -->
-        <Button fx:id="btnEntrar" defaultButton="true" mnemonicParsing="false" prefHeight="38.0" prefWidth="260.0" style="-fx-background-color: #3b82f6; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;" text="Entrar">
+        <Button fx:id="btnEntrar" defaultButton="true" mnemonicParsing="false" onAction="#onEntrarClick" prefHeight="38.0" prefWidth="260.0" style="-fx-background-color: #3b82f6; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;" text="Entrar">
             <VBox.margin>
                 <Insets top="15.0" />
             </VBox.margin>
