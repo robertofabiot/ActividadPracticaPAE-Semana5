@@ -16,7 +16,7 @@ public class MenuPrincipalController {
 
     @FXML
     public void initialize() {
-        lblBienvenida.setText("Menú Principal");
+        lblBienvenida.setText("Sistema de Clientes");
     }
 
     @FXML
