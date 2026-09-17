@@ -1,12 +1,15 @@
 package com.example.actividadpracticapaesemana5.controller;
 
 import com.example.actividadpracticapaesemana5.model.Usuario;
+import com.example.actividadpracticapaesemana5.util.SceneManager;
+import com.example.actividadpracticapaesemana5.util.Sesion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +47,11 @@ public class LoginController {
         Usuario usuarioAutenticado = autenticar(usuario.trim(), password);
 
         if (usuarioAutenticado != null) {
-            mostrarAlerta("Bienvenido", "Inicio de sesión exitoso. ¡Bienvenido, " + usuarioAutenticado.getNombreDeUsuario() + "!", Alert.AlertType.INFORMATION);
-            limpiarCampos();
+            Sesion.usuarioLogueado = usuarioAutenticado.getNombreDeUsuario();
+            Stage stage = (Stage) txtUsuario.getScene().getWindow();
+            SceneManager.cambiarEscena(stage,
+                    "/com/example/actividadpracticapaesemana5/fxml/menu-principal-view.fxml",
+                    "Menú Principal");
         } else {
             mostrarAlerta("Error de inicio de sesión", "Nombre de usuario o contraseña incorrectos.", Alert.AlertType.ERROR);
             txtPassword.clear();

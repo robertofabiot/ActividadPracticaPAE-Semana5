@@ -13,6 +13,7 @@ public class Cliente {
     private String tipoSolicitud;
     private List<String> serviciosInteres;
     private String rutaFotografia;
+    private String telefono;
 
     public Cliente() {
         this.serviciosInteres = new ArrayList<>();
@@ -104,7 +105,7 @@ public class Cliente {
         return serviciosInteres;
     }
 
-    public void setServiciosInteres(List serviciosInteres) {
+    public void setServiciosInteres(List<String> serviciosInteres) {
         this.serviciosInteres = serviciosInteres;
     }
 
@@ -114,6 +115,14 @@ public class Cliente {
 
     public void setRutaFotografia(String rutaFotografia) {
         this.rutaFotografia = rutaFotografia;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     @Override
