@@ -27,6 +27,7 @@ public class ClienteRegistroController {
     @FXML private CheckBox chkInternet, chkTelefonia, chkSoporte;
     @FXML private ImageView imgFotografia;
     @FXML private Label lblEstado;
+    @FXML private ToolBar toolBar;
     private String rutaFotografia;
 
     @FXML public void initialize() {
@@ -36,6 +37,7 @@ public class ClienteRegistroController {
         aplicarFormato(txtApellidos, "[A-Za-zÁÉÍÓÚáéíóúÑñÜü .'-]*");
         aplicarFormato(txtTelefono, "\\d{0,8}");
         dpFechaNacimiento.setDayCellFactory(p -> new DateCell() { @Override public void updateItem(LocalDate fecha, boolean empty) { super.updateItem(fecha, empty); setDisable(empty || fecha.isAfter(LocalDate.now())); }});
+        SceneManager.configurarTooltipsRapidos(toolBar);
     }
     private void aplicarFormato(TextField campo, String patron) { UnaryOperator<TextFormatter.Change> filtro = c -> c.getControlNewText().matches(patron) ? c : null; campo.setTextFormatter(new TextFormatter<>(filtro)); }
     @FXML private void avanzarApellidos(ActionEvent e) { txtApellidos.requestFocus(); }
@@ -67,6 +69,12 @@ public class ClienteRegistroController {
     private List<String> servicios() { List<String> r = new ArrayList<>(); if(chkInternet.isSelected())r.add(chkInternet.getText()); if(chkTelefonia.isSelected())r.add(chkTelefonia.getText()); if(chkSoporte.isSelected())r.add(chkSoporte.getText()); return r; }
     @FXML private void limpiarFormulario(ActionEvent e) { limpiar(); lblEstado.setText("Formulario limpiado."); txtNombres.requestFocus(); }
     private void limpiar() { txtNombres.clear(); txtApellidos.clear(); txtTelefono.clear(); cmbTipoCliente.getSelectionModel().clearSelection(); cmbCiudad.getSelectionModel().clearSelection(); dpFechaNacimiento.setValue(null); grupoSolicitud.selectToggle(null); chkInternet.setSelected(false); chkTelefonia.setSelected(false); chkSoporte.setSelected(false); imgFotografia.setImage(null); rutaFotografia = null; }
-    @FXML private void cancelar(ActionEvent e) { if (new Alert(Alert.AlertType.CONFIRMATION, "Se perderán los datos no guardados. ¿Deseas volver al menú?", ButtonType.YES, ButtonType.NO).showAndWait().filter(b -> b == ButtonType.YES).isPresent()) SceneManager.cambiarEscena(stage(), RUTA_MENU, "Menú Principal"); }
+    @FXML private void cancelar(ActionEvent e) { SceneManager.cambiarEscena(stage(), RUTA_MENU, "Menú Principal"); }
+    @FXML private void abrirMenu(ActionEvent e) { SceneManager.cambiarEscena(stage(), RUTA_MENU, "Menú Principal"); }
+    @FXML private void abrirRegistro(ActionEvent e) { limpiarFormulario(e); }
+    @FXML private void abrirConsulta(ActionEvent e) { SceneManager.cambiarEscena(stage(), "/com/example/actividadpracticapaesemana5/fxml/cliente-consulta-view.fxml", "Consulta de Clientes"); }
+    @FXML private void cerrarSesion(ActionEvent e) { if (new Alert(Alert.AlertType.CONFIRMATION, "¿Desea cerrar la sesión actual?", ButtonType.YES, ButtonType.NO).showAndWait().filter(b -> b == ButtonType.YES).isPresent()) SceneManager.cambiarEscena(stage(), "/com/example/actividadpracticapaesemana5/fxml/login-view.fxml", "Inicio de Sesión"); }
+    @FXML private void salir(ActionEvent e) { System.exit(0); }
+    @FXML private void acercaDe(ActionEvent e) { Alert info = new Alert(Alert.AlertType.INFORMATION); info.setHeaderText("Sistema de Solicitudes"); info.setContentText("Versión 1.0 - Semana 5\nJavaFX + Scene Builder"); info.showAndWait(); }
     private Stage stage() { return (Stage) txtNombres.getScene().getWindow(); }
 }

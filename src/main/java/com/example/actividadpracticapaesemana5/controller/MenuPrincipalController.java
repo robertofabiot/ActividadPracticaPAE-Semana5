@@ -12,11 +12,17 @@ import java.util.Optional;
 
 public class MenuPrincipalController {
     @FXML private Label lblBienvenida;
-    @FXML private Label lblEstado;
+    @FXML private javafx.scene.control.ToolBar toolBar;
 
     @FXML
     public void initialize() {
-        lblBienvenida.setText("Menú Principal");
+        lblBienvenida.setText("Sistema de Clientes");
+        SceneManager.configurarTooltipsRapidos(toolBar);
+    }
+
+    @FXML
+    public void abrirMenu(ActionEvent event) {
+        // Ya está en el menú principal - no hace nada
     }
 
     @FXML
@@ -51,13 +57,7 @@ public class MenuPrincipalController {
 
     @FXML
     public void salir(ActionEvent event) {
-        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-        confirm.setHeaderText(null);
-        confirm.setContentText("¿Está seguro que desea salir?");
-        Optional<ButtonType> r = confirm.showAndWait();
-        if (r.isPresent() && r.get() == ButtonType.OK) {
-            System.exit(0);
-        }
+        System.exit(0);
     }
 
     @FXML
