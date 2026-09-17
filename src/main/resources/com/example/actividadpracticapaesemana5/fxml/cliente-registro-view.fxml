@@ -142,25 +142,25 @@
                               <ColumnConstraints hgrow="ALWAYS" minWidth="250" />
                            </columnConstraints>
                            <children>
-                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Nombres *:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Nombres:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                               <TextField fx:id="txtNombres" onAction="#avanzarApellidos" promptText="Solo letras" style="-fx-font-family: 'Roboto Light'; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Apellidos *:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Apellidos:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                               <TextField fx:id="txtApellidos" onAction="#avanzarTelefono" promptText="Solo letras" style="-fx-font-family: 'Roboto Light'; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Teléfono *:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                               <TextField fx:id="txtTelefono" onAction="#avanzarTipoCliente" promptText="8 dígitos" style="-fx-font-family: 'Roboto Light'; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Tipo de cliente *:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Tipo de cliente:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                               <ComboBox fx:id="cmbTipoCliente" maxWidth="Infinity" onAction="#avanzarCiudad" promptText="Seleccione" style="-fx-font-family: 'Roboto Light'; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Ciudad *:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Ciudad:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                               <ComboBox fx:id="cmbCiudad" maxWidth="Infinity" onAction="#avanzarFecha" promptText="Seleccione" style="-fx-font-family: 'Roboto Light'; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Fecha nacimiento *:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Fecha nacimiento:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                               <DatePicker fx:id="dpFechaNacimiento" maxWidth="Infinity" onAction="#avanzarSolicitud" promptText="dd/mm/aaaa" style="-fx-font-family: 'Roboto Light'; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Tipo de solicitud *:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                              <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light';" text="Tipo de solicitud:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
                               <HBox alignment="CENTER_LEFT" spacing="14" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                  <children>
                                     <RadioButton fx:id="rbInformacion" mnemonicParsing="false" style="-fx-font-family: 'Roboto Light';" text="Información">
