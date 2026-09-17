@@ -1,85 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.actividadpracticapaesemana5.controller.ClienteDetalleController"
-            prefHeight="450.0" prefWidth="650.0">
-
-    <top>
-        <HBox alignment="CENTER" style="-fx-background-color: #2c3e50;">
+<AnchorPane prefHeight="610.0" prefWidth="790.0" style="-fx-background-color: #f1f5f9; -fx-font-family: 'Roboto Light';" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.actividadpracticapaesemana5.controller.ClienteDetalleController">
+    <children>
+        <VBox spacing="14" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(74, 102, 112, 0.2), 16, 0, 0, 4);" AnchorPane.bottomAnchor="18" AnchorPane.leftAnchor="18" AnchorPane.rightAnchor="18" AnchorPane.topAnchor="18">
             <padding>
-                <Insets top="15" right="15" bottom="15" left="15"/>
+                <Insets bottom="22" left="26" right="26" top="22" />
             </padding>
-            <Label text="Detalle del Cliente"
-                   style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
-        </HBox>
-    </top>
+            <children>
+                <Label style="-fx-font-size: 23px; -fx-font-weight: bold; -fx-text-fill: #4a6670; -fx-font-family: 'Roboto Light';" text="Detalle del Cliente">
+                    <font>
+                        <Font name="Roboto Light" size="23.0" />
+                    </font>
+                </Label>
 
-    <center>
-        <HBox spacing="30.0" alignment="CENTER_LEFT">
-            <padding>
-                <Insets top="30" right="30" bottom="30" left="30"/>
-            </padding>
+                <Separator />
 
-            <VBox alignment="CENTER" spacing="10">
-                <ImageView fx:id="imgFoto"
-                           fitWidth="150" fitHeight="150"
-                           preserveRatio="true"/>
-                <Label text="Fotografía"/>
-            </VBox>
+                <HBox spacing="24" VBox.vgrow="ALWAYS">
+                    <children>
+                        <GridPane hgap="14" vgap="16" HBox.hgrow="ALWAYS">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" minWidth="150" />
+                                <ColumnConstraints hgrow="ALWAYS" minWidth="250" />
+                            </columnConstraints>
+                            <children>
+                                <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light'; -fx-font-size: 13px;" text="Nombre completo:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label fx:id="lblNombre" maxWidth="Infinity" style="-fx-text-fill: #0f172a; -fx-font-family: 'Roboto Light'; -fx-font-size: 14px; -fx-padding: 6 10 6 10; -fx-background-color: #f8fafc; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-            <GridPane hgap="15" vgap="12">
-                <Label text="Nombre completo:" style="-fx-font-weight: bold;"
-                       GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <Label fx:id="lblNombre"
-                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light'; -fx-font-size: 13px;" text="Tipo de cliente:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <Label fx:id="lblTipo" maxWidth="Infinity" style="-fx-text-fill: #0f172a; -fx-font-family: 'Roboto Light'; -fx-font-size: 14px; -fx-padding: 6 10 6 10; -fx-background-color: #f8fafc; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label text="Tipo de cliente:" style="-fx-font-weight: bold;"
-                       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <Label fx:id="lblTipo"
-                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light'; -fx-font-size: 13px;" text="Ciudad:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <Label fx:id="lblCiudad" maxWidth="Infinity" style="-fx-text-fill: #0f172a; -fx-font-family: 'Roboto Light'; -fx-font-size: 14px; -fx-padding: 6 10 6 10; -fx-background-color: #f8fafc; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Ciudad:" style="-fx-font-weight: bold;"
-                       GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <Label fx:id="lblCiudad"
-                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                                <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light'; -fx-font-size: 13px;" text="Fecha de nacimiento:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                <Label fx:id="lblFecha" maxWidth="Infinity" style="-fx-text-fill: #0f172a; -fx-font-family: 'Roboto Light'; -fx-font-size: 14px; -fx-padding: 6 10 6 10; -fx-background-color: #f8fafc; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                <Label text="Fecha de nacimiento:" style="-fx-font-weight: bold;"
-                       GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                <Label fx:id="lblFecha"
-                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                                <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light'; -fx-font-size: 13px;" text="Tipo de solicitud:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                <Label fx:id="lblSolicitud" maxWidth="Infinity" style="-fx-text-fill: #0f172a; -fx-font-family: 'Roboto Light'; -fx-font-size: 14px; -fx-padding: 6 10 6 10; -fx-background-color: #f8fafc; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-                <Label text="Tipo de solicitud:" style="-fx-font-weight: bold;"
-                       GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                <Label fx:id="lblSolicitud"
-                       GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                                <Label style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-family: 'Roboto Light'; -fx-font-size: 13px;" text="Servicios:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                <Label fx:id="lblServicios" maxWidth="Infinity" style="-fx-text-fill: #0f172a; -fx-font-family: 'Roboto Light'; -fx-font-size: 14px; -fx-padding: 6 10 6 10; -fx-background-color: #f8fafc; -fx-background-radius: 6; -fx-border-color: #cfd8d7; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                            </children>
+                            <rowConstraints>
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                            </rowConstraints>
+                        </GridPane>
 
-                <Label text="Servicios:" style="-fx-font-weight: bold;"
-                       GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-                <Label fx:id="lblServicios"
-                       GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-            </GridPane>
-        </HBox>
-    </center>
+                        <VBox alignment="TOP_CENTER" prefWidth="180" spacing="10">
+                            <children>
+                                <ImageView fx:id="imgFoto" fitHeight="150" fitWidth="160" preserveRatio="true" style="-fx-border-color: #b5c9c3; -fx-border-radius: 8;" />
+                                <Label style="-fx-text-fill: #64748b; -fx-font-family: 'Roboto Light';" text="Fotografía del cliente" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
 
-    <bottom>
-        <HBox alignment="CENTER_RIGHT" spacing="10">
-            <padding>
-                <Insets top="15" right="20" bottom="15" left="20"/>
-            </padding>
-            <Button text="Regresar a Consulta" onAction="#regresarConsulta"/>
-            <Button text="Regresar al Menú Principal" onAction="#regresarMenu"
-                    style="-fx-base: #3498db;"/>
-        </HBox>
-    </bottom>
-
-</BorderPane>
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#regresarConsulta" style="-fx-background-color: #f1f5f9; -fx-text-fill: #4a6670; -fx-border-color: #cfd8d7; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-family: 'Roboto Light'; -fx-padding: 7 16 7 16;" text="Regresar a Consulta" />
+                        <Button mnemonicParsing="false" onAction="#regresarMenu" style="-fx-background-color: #4a6670; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-family: 'Roboto Light'; -fx-padding: 7 20 7 20;" text="Regresar al Menú Principal" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
