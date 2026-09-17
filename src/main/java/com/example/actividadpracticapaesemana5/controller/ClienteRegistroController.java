@@ -68,5 +68,11 @@ public class ClienteRegistroController {
     @FXML private void limpiarFormulario(ActionEvent e) { limpiar(); lblEstado.setText("Formulario limpiado."); txtNombres.requestFocus(); }
     private void limpiar() { txtNombres.clear(); txtApellidos.clear(); txtTelefono.clear(); cmbTipoCliente.getSelectionModel().clearSelection(); cmbCiudad.getSelectionModel().clearSelection(); dpFechaNacimiento.setValue(null); grupoSolicitud.selectToggle(null); chkInternet.setSelected(false); chkTelefonia.setSelected(false); chkSoporte.setSelected(false); imgFotografia.setImage(null); rutaFotografia = null; }
     @FXML private void cancelar(ActionEvent e) { if (new Alert(Alert.AlertType.CONFIRMATION, "Se perderán los datos no guardados. ¿Deseas volver al menú?", ButtonType.YES, ButtonType.NO).showAndWait().filter(b -> b == ButtonType.YES).isPresent()) SceneManager.cambiarEscena(stage(), RUTA_MENU, "Menú Principal"); }
+    @FXML private void abrirMenu(ActionEvent e) { cancelar(e); }
+    @FXML private void abrirRegistro(ActionEvent e) { limpiarFormulario(e); }
+    @FXML private void abrirConsulta(ActionEvent e) { SceneManager.cambiarEscena(stage(), "/com/example/actividadpracticapaesemana5/fxml/cliente-consulta-view.fxml", "Consulta de Clientes"); }
+    @FXML private void cerrarSesion(ActionEvent e) { if (new Alert(Alert.AlertType.CONFIRMATION, "¿Desea cerrar la sesión actual?", ButtonType.YES, ButtonType.NO).showAndWait().filter(b -> b == ButtonType.YES).isPresent()) SceneManager.cambiarEscena(stage(), "/com/example/actividadpracticapaesemana5/fxml/login-view.fxml", "Inicio de Sesión"); }
+    @FXML private void salir(ActionEvent e) { if (new Alert(Alert.AlertType.CONFIRMATION, "¿Está seguro que desea salir?", ButtonType.YES, ButtonType.NO).showAndWait().filter(b -> b == ButtonType.YES).isPresent()) System.exit(0); }
+    @FXML private void acercaDe(ActionEvent e) { Alert info = new Alert(Alert.AlertType.INFORMATION); info.setHeaderText("Sistema de Solicitudes"); info.setContentText("Versión 1.0 - Semana 5\nJavaFX + Scene Builder"); info.showAndWait(); }
     private Stage stage() { return (Stage) txtNombres.getScene().getWindow(); }
 }
