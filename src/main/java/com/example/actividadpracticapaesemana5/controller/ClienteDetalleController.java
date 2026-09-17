@@ -1,7 +1,7 @@
 package com.example.actividadpracticapaesemana5.controller;
 
 import com.example.actividadpracticapaesemana5.model.Cliente;
-import com.example.actividadpracticapaesemana5.util.Navegacion;
+import com.example.actividadpracticapaesemana5.util.SceneManager;
 import com.example.actividadpracticapaesemana5.util.Sesion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -69,12 +69,12 @@ public class ClienteDetalleController {
     @FXML
     public void regresarConsulta(ActionEvent event) {
         Stage stage = (Stage) lblNombre.getScene().getWindow();
-        Navegacion.cambiarVentana(stage, RUTA_CONSULTA, "Consulta de Clientes");
+        SceneManager.cambiarEscena(stage, RUTA_CONSULTA, "Consulta de Clientes");
     }
 
     @FXML
     public void regresarMenu(ActionEvent event) {
         Stage stage = (Stage) lblNombre.getScene().getWindow();
-        Navegacion.cambiarVentana(stage, RUTA_MENU, "Menú Principal");
+        SceneManager.cambiarEscena(stage, RUTA_MENU, "Menú Principal");
     }
 }
