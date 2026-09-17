@@ -6,47 +6,76 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="450.0" prefWidth="380.0" spacing="20.0" style="-fx-background-color: #bce2f1; -fx-padding: 40 30 40 30; -fx-font-family: 'Roboto Light'" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.actividadpracticapaesemana5.controller.LoginController">
+<AnchorPane prefHeight="610.0" prefWidth="790.0" style="-fx-background-color: #f1f5f9; -fx-font-family: 'Roboto Light';" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.actividadpracticapaesemana5.controller.LoginController">
     <children>
-        <!-- Icono de usuario centrado y en la parte superior -->
-        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../icons/usuario.png" />
-            </image>
-            <VBox.margin>
-                <Insets bottom="10.0" />
-            </VBox.margin>
-        </ImageView>
-
-        <!-- Campo de Usuario con icono a la izquierda y borde inferior -->
-        <HBox alignment="CENTER_LEFT" maxWidth="260.0" prefHeight="36.0" spacing="10.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #486581 transparent; -fx-border-width: 0 0 1.5 0; -fx-padding: 2 6 4 6;">
+        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../icons/usuarioField.png" />
-                    </image>
-                </ImageView>
-                <TextField fx:id="txtUsuario" alignment="CENTER" promptText="Nombre de usuario" style="-fx-background-color: transparent; -fx-prompt-text-fill: #5a7a94; -fx-text-fill: #102a43; -fx-font-size: 13px;" HBox.hgrow="ALWAYS" />
-            </children>
-        </HBox>
+                <VBox maxWidth="420.0" prefWidth="420.0" spacing="16.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(74, 102, 112, 0.2), 16, 0, 0, 4);">
+                    <padding>
+                        <Insets bottom="32.0" left="32.0" right="32.0" top="30.0" />
+                    </padding>
+                    <children>
+                        <VBox alignment="CENTER" spacing="8.0">
+                            <children>
+                                <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/usuario.png" />
+                                    </image>
+                                </ImageView>
+                                <Label style="-fx-font-size: 23px; -fx-font-weight: bold; -fx-text-fill: #4a6670; -fx-font-family: 'Roboto Light';" text="Inicio de Sesión">
+                                    <font>
+                                        <Font name="Roboto Light" size="23.0" />
+                                    </font>
+                                </Label>
+                                <Label style="-fx-font-size: 13px; -fx-text-fill: #64748b; -fx-font-family: 'Roboto Light';" text="Ingresa tus credenciales para acceder" />
+                            </children>
+                        </VBox>
 
-        <!-- Campo de Contraseña con icono a la izquierda y borde inferior -->
-        <HBox alignment="CENTER_LEFT" maxWidth="260.0" prefHeight="36.0" spacing="10.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #486581 transparent; -fx-border-width: 0 0 1.5 0; -fx-padding: 2 6 4 6;">
-            <children>
-                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../icons/passwordField.png" />
-                    </image>
-                </ImageView>
-                <PasswordField fx:id="txtPassword" alignment="CENTER" promptText="Contraseña" style="-fx-background-color: transparent; -fx-prompt-text-fill: #5a7a94; -fx-text-fill: #102a43; -fx-font-size: 13px;" HBox.hgrow="ALWAYS" />
-            </children>
-        </HBox>
+                        <Separator />
 
-        <!-- Botón de Entrar -->
-        <Button fx:id="btnEntrar" defaultButton="true" mnemonicParsing="false" onAction="#onEntrarClick" prefHeight="38.0" prefWidth="260.0" style="-fx-background-color: #3b82f6; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;" text="Entrar">
-            <VBox.margin>
-                <Insets top="15.0" />
-            </VBox.margin>
-        </Button>
+                        <VBox spacing="6.0">
+                            <children>
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #334155; -fx-font-family: 'Roboto Light';" text="Usuario *:" />
+                                <HBox alignment="CENTER_LEFT" prefHeight="38.0" spacing="8.0" style="-fx-background-color: white; -fx-border-color: #cfd8d7; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 0 10 0 10;">
+                                    <children>
+                                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../icons/usuarioField.png" />
+                                            </image>
+                                        </ImageView>
+                                        <TextField fx:id="txtUsuario" promptText="Nombre de usuario" style="-fx-background-color: transparent; -fx-font-family: 'Roboto Light'; -fx-text-fill: #0f172a; -fx-font-size: 13px;" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="6.0">
+                            <children>
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #334155; -fx-font-family: 'Roboto Light';" text="Contraseña *:" />
+                                <HBox alignment="CENTER_LEFT" prefHeight="38.0" spacing="8.0" style="-fx-background-color: white; -fx-border-color: #cfd8d7; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 0 10 0 10;">
+                                    <children>
+                                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../icons/passwordField.png" />
+                                            </image>
+                                        </ImageView>
+                                        <PasswordField fx:id="txtPassword" promptText="Contraseña" style="-fx-background-color: transparent; -fx-font-family: 'Roboto Light'; -fx-text-fill: #0f172a; -fx-font-size: 13px;" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="10.0">
+                            <VBox.margin>
+                                <Insets top="8.0" />
+                            </VBox.margin>
+                            <children>
+                                <Button fx:id="btnEntrar" defaultButton="true" maxWidth="Infinity" mnemonicParsing="false" onAction="#onEntrarClick" prefHeight="40.0" style="-fx-background-color: #4a6670; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-family: 'Roboto Light';" text="Iniciar Sesión" />
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
     </children>
-</VBox>
+</AnchorPane>
