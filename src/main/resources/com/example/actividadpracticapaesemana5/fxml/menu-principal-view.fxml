@@ -89,11 +89,11 @@
         </VBox>
     </center>
     <bottom>
-        <HBox alignment="CENTER_RIGHT">
+        <HBox alignment="CENTER">
             <padding>
                 <Insets top="10" right="15" bottom="10" left="15"/>
             </padding>
-            <Label fx:id="lblEstado" text="Listo"/>
+            <Label fx:id="lblEstado" text="Programación de Aplicaciones de Escritorio"/>
         </HBox>
     </bottom>
 </BorderPane>
