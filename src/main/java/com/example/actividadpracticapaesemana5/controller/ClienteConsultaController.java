@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -27,6 +28,8 @@ public class ClienteConsultaController {
     @FXML private TableColumn<Cliente, String> colFechaNacimiento;
     @FXML private TableColumn<Cliente, String> colTipoSolicitud;
 
+    @FXML private ToolBar toolBar;
+
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
 
     @FXML
@@ -37,6 +40,7 @@ public class ClienteConsultaController {
         colFechaNacimiento.setCellValueFactory(new PropertyValueFactory<>("fechaNacimiento"));
         colTipoSolicitud.setCellValueFactory(new PropertyValueFactory<>("tipoSolicitud"));
 
+        SceneManager.configurarTooltipsRapidos(toolBar);
         cargarDatosPrueba();
     }
 
@@ -56,16 +60,17 @@ public class ClienteConsultaController {
                 "Detalle del Cliente - " + cliente.getNombreCompleto());
     }
 
-
     @FXML
     private void onVolverMenu(ActionEvent event) {
+        abrirMenu(event);
+    }
+
+    @FXML private void abrirMenu(ActionEvent e) {
         Stage stage = (Stage) tblClientes.getScene().getWindow();
         SceneManager.cambiarEscena(stage,
                 "/com/example/actividadpracticapaesemana5/fxml/menu-principal-view.fxml",
                 "Menú Principal");
     }
-
-    @FXML private void abrirMenu(ActionEvent e) { onVolverMenu(e); }
     @FXML private void abrirRegistro(ActionEvent e) {
         Stage stage = (Stage) tblClientes.getScene().getWindow();
         SceneManager.cambiarEscena(stage, "/com/example/actividadpracticapaesemana5/fxml/cliente-registro-view.fxml", "Registro de Cliente");
@@ -82,13 +87,7 @@ public class ClienteConsultaController {
         }
     }
     @FXML private void salir(ActionEvent e) {
-        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-        confirm.setHeaderText(null);
-        confirm.setContentText("¿Está seguro que desea salir?");
-        Optional<ButtonType> r = confirm.showAndWait();
-        if (r.isPresent() && r.get() == ButtonType.OK) {
-            System.exit(0);
-        }
+        System.exit(0);
     }
     @FXML private void acercaDe(ActionEvent e) {
         Alert info = new Alert(Alert.AlertType.INFORMATION);
