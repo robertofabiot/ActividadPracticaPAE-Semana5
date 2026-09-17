@@ -12,7 +12,6 @@ import java.util.Optional;
 
 public class MenuPrincipalController {
     @FXML private Label lblBienvenida;
-    @FXML private Label lblEstado;
 
     @FXML
     public void initialize() {
