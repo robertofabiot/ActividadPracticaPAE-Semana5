@@ -19,6 +19,11 @@ public class MenuPrincipalController {
     }
 
     @FXML
+    public void abrirMenu(ActionEvent event) {
+        // Ya está en el menú principal
+    }
+
+    @FXML
     public void abrirRegistro(ActionEvent event) {
         Stage stage = (Stage) lblBienvenida.getScene().getWindow();
         SceneManager.cambiarEscena(stage,
