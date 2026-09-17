@@ -92,7 +92,7 @@ public class ClienteConsultaController {
     @FXML private void acercaDe(ActionEvent e) {
         Alert info = new Alert(Alert.AlertType.INFORMATION);
         info.setHeaderText("Sistema de Solicitudes");
-        info.setContentText("Versión 1.0 - Semana 5\nJavaFX + Scene Builder");
+        info.setContentText("Versión 1.0 - Semana 5\n");
         info.showAndWait();
     }
 
