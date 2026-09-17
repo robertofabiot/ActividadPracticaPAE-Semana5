@@ -23,15 +23,7 @@
                           </ImageView>
                        </graphic>
                     </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión">
-                       <graphic>
-                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                             <image>
-                                <Image url="@../icons/volver.png" />
-                             </image>
-                          </ImageView>
-                       </graphic>
-                    </MenuItem>
+                    <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión" />
                     <SeparatorMenuItem />
                     <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir">
                        <graphic>
@@ -73,7 +65,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <ToolBar style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-width: 0 0 1 0; -fx-padding: 6 16 6 16;">
+            <ToolBar fx:id="toolBar" style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-width: 0 0 1 0; -fx-padding: 6 16 6 16;">
                <items>
                   <Button mnemonicParsing="false" onAction="#abrirMenu" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
                      <graphic>
@@ -84,7 +76,7 @@
                         </ImageView>
                      </graphic>
                      <tooltip>
-                        <Tooltip text="Inicio / Menú Principal" />
+                        <Tooltip text="Volver al Menú Principal" />
                      </tooltip>
                   </Button>
                   <Separator orientation="VERTICAL" />
@@ -113,18 +105,6 @@
                      </tooltip>
                   </Button>
                   <Separator orientation="VERTICAL" />
-                  <Button mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/volver.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <tooltip>
-                        <Tooltip text="Cerrar Sesión" />
-                     </tooltip>
-                  </Button>
                   <Button mnemonicParsing="false" onAction="#salir" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -134,7 +114,7 @@
                         </ImageView>
                      </graphic>
                      <tooltip>
-                        <Tooltip text="Salir del Sistema" />
+                        <Tooltip text="Cerrar el Programa" />
                      </tooltip>
                   </Button>
                </items>
@@ -172,12 +152,6 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-
-                  <HBox alignment="CENTER_RIGHT" spacing="10.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#onVolverMenu" style="-fx-background-color: #4a6670; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-radius: 6; -fx-padding: 8 20 8 20; -fx-cursor: hand; -fx-font-family: 'Roboto Light';" text="Regresar al Menú" />
-                     </children>
-                  </HBox>
                </children>
             </VBox>
          </children>
