@@ -32,6 +32,13 @@
                             <MenuItem text="Salir" onAction="#salir"/>
                         </items>
                     </Menu>
+                    <Menu text="Navegación">
+                        <items>
+                            <MenuItem fx:id="miIrMenu"     text="Menú Principal" onAction="#irAlMenu"/>
+                            <MenuItem fx:id="miIrRegistro" text="Registro"       onAction="#abrirRegistro"/>
+                            <MenuItem fx:id="miIrConsulta" text="Consulta"       onAction="#abrirConsulta"/>
+                        </items>
+                    </Menu>
                     <Menu text="Ayuda">
                         <items>
                             <MenuItem text="Acerca de..." onAction="#acercaDe"/>
@@ -82,6 +89,8 @@
                         onAction="#abrirConsulta"
                         prefWidth="200" prefHeight="80"
                         style="-fx-font-size: 16px;"/>
+
+
             </HBox>
 
             <Label text="Tip: clic derecho sobre el título para ver más opciones."

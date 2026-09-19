@@ -7,16 +7,27 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.scene.control.MenuItem;
 
 import java.util.Optional;
 
 public class MenuPrincipalController {
     @FXML private Label lblBienvenida;
     @FXML private Label lblEstado;
+    @FXML private MenuItem miIrMenu;
+    @FXML private MenuItem miIrRegistro;
+    @FXML private MenuItem miIrConsulta;
 
     @FXML
     public void initialize() {
         lblBienvenida.setText("Menú Principal");
+
+        miIrMenu.setDisable(true);
+    }
+
+    @FXML
+    public void irAlMenu(ActionEvent event) {
+        // No hace nada al ya estar en el menú principal.
     }
 
     @FXML
