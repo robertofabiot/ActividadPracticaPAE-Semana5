@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -38,7 +39,9 @@ public class ClienteConsultaController {
     @FXML private MenuItem miIrRegistro;
     @FXML private MenuItem miIrConsulta;
 
-    private ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
+    @FXML private ToolBar toolBar;
+
+    private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
@@ -90,6 +93,15 @@ public class ClienteConsultaController {
     public void irARegistro(ActionEvent event) {
         Stage stage = (Stage) tblClientes.getScene().getWindow();
         Navegacion.cambiarVentana(stage, RUTA_REGISTRO, "Registro de Cliente");
+    }
+    @FXML private void salir(ActionEvent e) {
+        System.exit(0);
+    }
+    @FXML private void acercaDe(ActionEvent e) {
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setHeaderText("Sistema de Solicitudes");
+        info.setContentText("Versión 1.0 - Semana 5\n");
+        info.showAndWait();
     }
 
     @FXML

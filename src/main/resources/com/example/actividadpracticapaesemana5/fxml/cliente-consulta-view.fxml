@@ -2,9 +2,139 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="550.0" prefWidth="750.0" style="-fx-background-color: #0F172A;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.actividadpracticapaesemana5.controller.ClienteConsultaController">
+<BorderPane prefHeight="610.0" prefWidth="790.0" style="-fx-background-color: #f4f7f9; -fx-font-family: 'Roboto Light';" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.actividadpracticapaesemana5.controller.ClienteConsultaController">
+   <top>
+      <VBox spacing="0.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar style="-fx-background-color: white; -fx-border-color: #cbd5e1; -fx-border-width: 0 0 1 0; -fx-font-family: 'Roboto Light';">
+              <menus>
+                <Menu mnemonicParsing="false" text="Archivo">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#abrirMenu" text="Menú Principal">
+                       <graphic>
+                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                             <image>
+                                <Image url="@../icons/volver.png" />
+                             </image>
+                          </ImageView>
+                       </graphic>
+                    </MenuItem>
+                    <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión" />
+                    <SeparatorMenuItem />
+                    <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir">
+                       <graphic>
+                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                             <image>
+                                <Image url="@../icons/cerrar.png" />
+                             </image>
+                          </ImageView>
+                       </graphic>
+                    </MenuItem>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Clientes">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#abrirRegistro" text="Registrar Cliente">
+                       <graphic>
+                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                             <image>
+                                <Image url="@../icons/agregar.png" />
+                             </image>
+                          </ImageView>
+                       </graphic>
+                    </MenuItem>
+                    <MenuItem mnemonicParsing="false" onAction="#abrirConsulta" text="Consultar Clientes">
+                       <graphic>
+                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                             <image>
+                                <Image url="@../icons/consulta.png" />
+                             </image>
+                          </ImageView>
+                       </graphic>
+                    </MenuItem>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Ayuda">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#acercaDe" text="Acerca de" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar fx:id="toolBar" style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-width: 0 0 1 0; -fx-padding: 6 16 6 16;">
+               <items>
+                  <Button mnemonicParsing="false" onAction="#abrirMenu" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/volver.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Volver al Menú Principal" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" />
+                  <Button mnemonicParsing="false" onAction="#abrirRegistro" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/agregar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Registrar Cliente" />
+                     </tooltip>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#abrirConsulta" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/consulta.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Consultar Clientes" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" />
+                  <Button mnemonicParsing="false" onAction="#salir" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/cerrar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Cerrar el Programa" />
+                     </tooltip>
+                  </Button>
+               </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <AnchorPane>
+         <children>
+            <VBox spacing="14" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(74, 102, 112, 0.2), 16, 0, 0, 4);" AnchorPane.bottomAnchor="14" AnchorPane.leftAnchor="16" AnchorPane.rightAnchor="16" AnchorPane.topAnchor="14">
+               <padding>
+                  <Insets bottom="18" left="24" right="24" top="18" />
+               </padding>
+               <children>
+                  <Label style="-fx-font-size: 21px; -fx-font-weight: bold; -fx-text-fill: #4a6670; -fx-font-family: 'Roboto Light';" text="Consulta de Clientes">
+                     <font>
+                        <Font name="Roboto Light" size="21.0" />
+                     </font>
+                  </Label>
 
     <children>
         <VBox spacing="15.0" style="-fx-background-color: #1E293B;                    -fx-border-color: linear-gradient(to right, #8B5CF6, #EC4899, #3B82F6);                    -fx-border-width: 2.5px;                    -fx-border-radius: 12;                    -fx-background-radius: 12;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
@@ -24,17 +154,10 @@
             </padding>
             <children>
 
-                <!-- Encabezado -->
-                <VBox spacing="3.0">
-                    <children>
-                        <Label style="-fx-text-fill: #F8FAFC; -fx-font-size: 20px; -fx-font-weight: bold;" text="CONSULTA DE CLIENTES" />
-                        <Label style="-fx-text-fill: #94A3B8; -fx-font-size: 12px;" text="Haz doble clic sobre un registro para ver el detalle o editar." />
-                    </children>
-                </VBox>
+                  <Label style="-fx-text-fill: #64748b; -fx-font-size: 13px; -fx-font-family: 'Roboto Light';" text="Haz doble clic sobre un registro para consultar el detalle completo del cliente." />
 
-                <!-- TableView -->
-                <TableView fx:id="tblClientes" onMouseClicked="#onTableClicked" style="-fx-background-color: #0F172A;                               -fx-base: #1E293B;                               -fx-control-inner-background: #0F172A;                               -fx-table-cell-border-color: transparent;                               -fx-border-color: #334155;                               -fx-border-radius: 8;                               -fx-background-radius: 8;" VBox.vgrow="ALWAYS">
-                    <columns>
+                  <TableView fx:id="tblClientes" onMouseClicked="#onTableClicked" style="-fx-background-color: white; -fx-border-color: #cfd8d7; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-family: 'Roboto Light'; -fx-selection-bar: #b5c9c3; -fx-selection-bar-non-focused: #cfd8d7;" VBox.vgrow="ALWAYS">
+                     <columns>
                         <TableColumn fx:id="colNombre" prefWidth="180.0" text="Nombre Completo" />
                         <TableColumn fx:id="colTipoCliente" prefWidth="120.0" text="Tipo Cliente" />
                         <TableColumn fx:id="colCiudad" prefWidth="110.0" text="Ciudad" />
@@ -45,17 +168,11 @@
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                    </columnResizePolicy>
-                </TableView>
-
-                <!-- Volver al menu -->
-                <HBox alignment="CENTER_RIGHT" spacing="10.0">
-                    <children>
-                        <Button mnemonicParsing="false" onAction="#onVolverMenu" style="-fx-background-color: #3B82F6;                                  -fx-text-fill: white;                                  -fx-font-weight: bold;                                  -fx-font-size: 13px;                                  -fx-background-radius: 8;                                  -fx-padding: 8 20 8 20;                                  -fx-cursor: hand;" text="Regresar al Menú  🏠" />
-                    </children>
-                </HBox>
-
-            </children>
-        </VBox>
-    </children>
-</AnchorPane>
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

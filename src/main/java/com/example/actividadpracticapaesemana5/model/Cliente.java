@@ -114,7 +114,7 @@ public class Cliente {
         return serviciosInteres;
     }
 
-    public void setServiciosInteres(List serviciosInteres) {
+    public void setServiciosInteres(List<String> serviciosInteres) {
         this.serviciosInteres = serviciosInteres;
     }
 

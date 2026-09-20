@@ -1,6 +1,6 @@
 package com.example.actividadpracticapaesemana5.controller;
 
-import com.example.actividadpracticapaesemana5.util.Navegacion;
+import com.example.actividadpracticapaesemana5.util.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -33,7 +33,7 @@ public class MenuPrincipalController {
     @FXML
     public void abrirRegistro(ActionEvent event) {
         Stage stage = (Stage) lblBienvenida.getScene().getWindow();
-        Navegacion.cambiarVentana(stage,
+        SceneManager.cambiarEscena(stage,
                 "/com/example/actividadpracticapaesemana5/fxml/cliente-registro-view.fxml",
                 "Registro de Cliente");
     }
@@ -41,7 +41,7 @@ public class MenuPrincipalController {
     @FXML
     public void abrirConsulta(ActionEvent event) {
         Stage stage = (Stage) lblBienvenida.getScene().getWindow();
-        Navegacion.cambiarVentana(stage,
+        SceneManager.cambiarEscena(stage,
                 "/com/example/actividadpracticapaesemana5/fxml/cliente-consulta-view.fxml",
                 "Consulta de Clientes");
     }
@@ -54,7 +54,7 @@ public class MenuPrincipalController {
         Optional<ButtonType> r = confirm.showAndWait();
         if (r.isPresent() && r.get() == ButtonType.OK) {
             Stage stage = (Stage) lblBienvenida.getScene().getWindow();
-            Navegacion.cambiarVentana(stage,
+            SceneManager.cambiarEscena(stage,
                     "/com/example/actividadpracticapaesemana5/fxml/login-view.fxml",
                     "Inicio de Sesión");
         }
@@ -62,13 +62,7 @@ public class MenuPrincipalController {
 
     @FXML
     public void salir(ActionEvent event) {
-        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-        confirm.setHeaderText(null);
-        confirm.setContentText("¿Está seguro que desea salir?");
-        Optional<ButtonType> r = confirm.showAndWait();
-        if (r.isPresent() && r.get() == ButtonType.OK) {
-            System.exit(0);
-        }
+        System.exit(0);
     }
 
     @FXML
