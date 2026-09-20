@@ -95,7 +95,7 @@ public class ClienteConsultaController {
         }
     }
 
-    // ── Navegación desde menú y toolbar del FXML ──────────────────────────────
+    //  Navegación desde menú y toolbar del FXML
     @FXML public void abrirMenu(ActionEvent event) {
         Navegacion.cambiarVentana(stage(), RUTA_MENU, "Menú Principal");
     }
@@ -115,10 +115,10 @@ public class ClienteConsultaController {
                 Navegacion.cambiarVentana(stage(), "/com/example/actividadpracticapaesemana5/fxml/login-view.fxml", "Inicio de Sesión"));
     }
 
-    // ── Métodos del menú Navegación interno (legacy) ───────────────────────────
+    // ── Métodos del menú Navegación interno
     @FXML public void irAlMenu(ActionEvent event)    { abrirMenu(event); }
     @FXML public void irARegistro(ActionEvent event) { abrirRegistro(event); }
-    @FXML public void irAConsulta(ActionEvent event) { /* ya estamos aquí */ }
+    @FXML public void irAConsulta(ActionEvent event) {  }
 
     @FXML private void onVolverMenu(ActionEvent event) { abrirMenu(event); }
 
