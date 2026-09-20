@@ -136,7 +136,23 @@
                      </font>
                   </Label>
 
-                  <Separator />
+    <children>
+        <VBox spacing="15.0" style="-fx-background-color: #1E293B;                    -fx-border-color: linear-gradient(to right, #8B5CF6, #EC4899, #3B82F6);                    -fx-border-width: 2.5px;                    -fx-border-radius: 12;                    -fx-background-radius: 12;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+            <MenuBar>
+                <menus>
+                    <Menu text="Navegación">
+                        <items>
+                            <MenuItem fx:id="miIrMenu"     text="Menú Principal" onAction="#irAlMenu"/>
+                            <MenuItem fx:id="miIrRegistro" text="Registro"       onAction="#irARegistro"/>
+                            <MenuItem fx:id="miIrConsulta" text="Consulta"       onAction="#irAConsulta"/>
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <children>
 
                   <Label style="-fx-text-fill: #64748b; -fx-font-size: 13px; -fx-font-family: 'Roboto Light';" text="Haz doble clic sobre un registro para consultar el detalle completo del cliente." />
 
@@ -147,8 +163,10 @@
                         <TableColumn fx:id="colCiudad" prefWidth="110.0" text="Ciudad" />
                         <TableColumn fx:id="colFechaNacimiento" prefWidth="130.0" text="Fecha Nacimiento" />
                         <TableColumn fx:id="colTipoSolicitud" prefWidth="140.0" text="Tipo Solicitud" />
-                     </columns>
-                     <columnResizePolicy>
+                        <TableColumn fx:id="colFechaHora" prefWidth="160.0" text="Registrado" />
+
+                    </columns>
+                    <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>

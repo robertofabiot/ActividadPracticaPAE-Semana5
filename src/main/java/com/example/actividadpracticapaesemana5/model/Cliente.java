@@ -1,6 +1,8 @@
 package com.example.actividadpracticapaesemana5.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +15,11 @@ public class Cliente {
     private String tipoSolicitud;
     private List<String> serviciosInteres;
     private String rutaFotografia;
-    private String telefono;
+    private LocalDateTime fechaHoraRegistro;
 
     public Cliente() {
         this.serviciosInteres = new ArrayList<>();
+        this.fechaHoraRegistro = LocalDateTime.now();
     }
 
     public Cliente(String nombres, String apellidos, String tipoCliente, String ciudad,
@@ -30,6 +33,7 @@ public class Cliente {
         this.tipoSolicitud = tipoSolicitud;
         this.serviciosInteres = (serviciosInteres != null) ? serviciosInteres : new ArrayList<>();
         this.rutaFotografia = rutaFotografia;
+        this.fechaHoraRegistro = LocalDateTime.now();
     }
 
     // Propiedad calculada para mapear directamente en TableView ("nombreCompleto")
@@ -50,6 +54,11 @@ public class Cliente {
     public String getFechaComoTexto() {
         if (fechaNacimiento == null) return "";
         return fechaNacimiento.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
+
+    public String getFechaHoraRegistroComoTexto() {
+        if (fechaHoraRegistro == null) return "";
+        return fechaHoraRegistro.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
     }
 
     // Getters y Setters
@@ -117,13 +126,9 @@ public class Cliente {
         this.rutaFotografia = rutaFotografia;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
+    public LocalDateTime getFechaHoraRegistro() { return fechaHoraRegistro; }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
+    public void setFechaHoraRegistro(LocalDateTime fechaHoraRegistro) { this.fechaHoraRegistro = fechaHoraRegistro;}
 
     @Override
     public String toString() {
