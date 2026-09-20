@@ -9,6 +9,7 @@ import java.util.List;
 public class Cliente {
     private String nombres;
     private String apellidos;
+    private String telefono;
     private String tipoCliente;
     private String ciudad;
     private LocalDate fechaNacimiento;
@@ -76,6 +77,14 @@ public class Cliente {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getTipoCliente() {

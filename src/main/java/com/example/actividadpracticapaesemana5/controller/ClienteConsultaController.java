@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.ToolBar;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -40,8 +37,10 @@ public class ClienteConsultaController {
     @FXML private MenuItem miIrConsulta;
 
     @FXML private ToolBar toolBar;
+    @FXML private TextField txtBuscar;
 
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
+    private javafx.collections.transformation.FilteredList<Cliente> clientesFiltrados;
 
     @FXML
     public void initialize() {
@@ -54,6 +53,25 @@ public class ClienteConsultaController {
 
         // Cargar los clientes registrados desde Sesion
         cargarClientes();
+
+        // Configurar el buscador
+        if (txtBuscar != null) {
+            txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
+                clientesFiltrados.setPredicate(cliente -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (cliente.getNombreCompleto() != null && cliente.getNombreCompleto().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (cliente.getCiudad() != null && cliente.getCiudad().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                    return false;
+                });
+            });
+        }
+
         // Desactivar el MenuItem de la ventana actual
         if (miIrConsulta != null) {
             miIrConsulta.setDisable(true);
@@ -61,7 +79,10 @@ public class ClienteConsultaController {
     }
     private void cargarClientes() {
         listaClientes.setAll(Sesion.clientes);
-        tblClientes.setItems(listaClientes);
+        clientesFiltrados = new javafx.collections.transformation.FilteredList<>(listaClientes, b -> true);
+        javafx.collections.transformation.SortedList<Cliente> sortedData = new javafx.collections.transformation.SortedList<>(clientesFiltrados);
+        sortedData.comparatorProperty().bind(tblClientes.comparatorProperty());
+        tblClientes.setItems(sortedData);
     }
 
     @FXML
