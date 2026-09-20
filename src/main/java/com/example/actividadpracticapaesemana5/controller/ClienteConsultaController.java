@@ -115,10 +115,10 @@ public class ClienteConsultaController {
                 Navegacion.cambiarVentana(stage(), "/com/example/actividadpracticapaesemana5/fxml/login-view.fxml", "Inicio de Sesión"));
     }
 
-    // ── Métodos del menú Navegación interno
+    //  Métodos del menú Navegación interno
     @FXML public void irAlMenu(ActionEvent event)    { abrirMenu(event); }
     @FXML public void irARegistro(ActionEvent event) { abrirRegistro(event); }
-    @FXML public void irAConsulta(ActionEvent event) {  }
+    @FXML public void irAConsulta(ActionEvent event) {  /**/  }
 
     @FXML private void onVolverMenu(ActionEvent event) { abrirMenu(event); }
 
