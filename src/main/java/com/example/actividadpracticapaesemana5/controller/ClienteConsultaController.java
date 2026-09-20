@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.ToolBar;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -35,13 +32,12 @@ public class ClienteConsultaController {
     @FXML private TableColumn<Cliente, String> colTipoSolicitud;
     @FXML private TableColumn<Cliente, String> colFechaHora;
 
-    @FXML private MenuItem miIrMenu;
-    @FXML private MenuItem miIrRegistro;
-    @FXML private MenuItem miIrConsulta;
-
     @FXML private ToolBar toolBar;
+    @FXML private TextField txtBuscar;
+    @FXML private Button btnBuscar;
 
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
+    private javafx.collections.transformation.FilteredList<Cliente> clientesFiltrados;
 
     @FXML
     public void initialize() {
@@ -50,18 +46,42 @@ public class ClienteConsultaController {
         colCiudad.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
         colFechaNacimiento.setCellValueFactory(new PropertyValueFactory<>("fechaComoTexto"));
         colTipoSolicitud.setCellValueFactory(new PropertyValueFactory<>("tipoSolicitud"));
-        colFechaHora.setCellValueFactory(new PropertyValueFactory<>("fechaHoraComoTexto"));
+        // El getter en Cliente se llama getFechaHoraRegistroComoTexto -> propiedad "fechaHoraRegistroComoTexto"
+        colFechaHora.setCellValueFactory(new PropertyValueFactory<>("fechaHoraRegistroComoTexto"));
 
         // Cargar los clientes registrados desde Sesion
         cargarClientes();
-        // Desactivar el MenuItem de la ventana actual
-        if (miIrConsulta != null) {
-            miIrConsulta.setDisable(true);
+    }
+
+    @FXML
+    public void onBuscarClick(ActionEvent event) {
+        if (txtBuscar != null && clientesFiltrados != null) {
+            String filterText = txtBuscar.getText();
+            clientesFiltrados.setPredicate(cliente -> {
+                if (filterText == null || filterText.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = filterText.toLowerCase();
+                if (cliente.getNombreCompleto() != null && cliente.getNombreCompleto().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (cliente.getCiudad() != null && cliente.getCiudad().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
         }
     }
+
     private void cargarClientes() {
         listaClientes.setAll(Sesion.clientes);
-        tblClientes.setItems(listaClientes);
+        clientesFiltrados = new javafx.collections.transformation.FilteredList<>(listaClientes, b -> true);
+        javafx.collections.transformation.SortedList<Cliente> sortedData = new javafx.collections.transformation.SortedList<>(clientesFiltrados);
+        sortedData.comparatorProperty().bind(tblClientes.comparatorProperty());
+        tblClientes.setItems(sortedData);
+    }
+
+    private Stage stage() {
+        return (Stage) tblClientes.getScene().getWindow();
     }
 
     @FXML
@@ -69,45 +89,46 @@ public class ClienteConsultaController {
         if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
             Cliente clienteSeleccionado = tblClientes.getSelectionModel().getSelectedItem();
             if (clienteSeleccionado != null) {
-                Sesion.clienteSeleccionado = clienteSeleccionado;   // 👈 guarda en Sesion
-                Stage stage = (Stage) tblClientes.getScene().getWindow();
-                Navegacion.cambiarVentana(stage, RUTA_DETALLE, "Detalle del Cliente");
+                Sesion.clienteSeleccionado = clienteSeleccionado;
+                Navegacion.cambiarVentana(stage(), RUTA_DETALLE, "Detalle del Cliente");
             }
         }
     }
 
-    @FXML
-    private void onVolverMenu(ActionEvent event) {
-        Stage stage = (Stage) tblClientes.getScene().getWindow();
-        Navegacion.cambiarVentana(stage, RUTA_MENU, "Menú Principal");
+    //  Navegación desde menú y toolbar del FXML
+    @FXML public void abrirMenu(ActionEvent event) {
+        Navegacion.cambiarVentana(stage(), RUTA_MENU, "Menú Principal");
     }
 
-    // Menú de navegación
-    @FXML
-    public void irAlMenu(ActionEvent event) {
-        Stage stage = (Stage) tblClientes.getScene().getWindow();
-        Navegacion.cambiarVentana(stage, RUTA_MENU, "Menú Principal");
+    @FXML public void abrirRegistro(ActionEvent event) {
+        Navegacion.cambiarVentana(stage(), RUTA_REGISTRO, "Registro de Cliente");
     }
 
-    @FXML
-    public void irARegistro(ActionEvent event) {
-        Stage stage = (Stage) tblClientes.getScene().getWindow();
-        Navegacion.cambiarVentana(stage, RUTA_REGISTRO, "Registro de Cliente");
+    @FXML public void abrirConsulta(ActionEvent event) {
+        // Ya estamos en esta ventana.
     }
-    @FXML private void salir(ActionEvent e) {
-        System.exit(0);
+
+    @FXML public void cerrarSesion(ActionEvent event) {
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "¿Desea cerrar la sesión actual?", ButtonType.YES, ButtonType.NO);
+        confirm.setHeaderText(null);
+        confirm.showAndWait().filter(b -> b == ButtonType.YES).ifPresent(b ->
+                Navegacion.cambiarVentana(stage(), "/com/example/actividadpracticapaesemana5/fxml/login-view.fxml", "Inicio de Sesión"));
     }
+
+    //  Métodos del menú Navegación interno
+    @FXML public void irAlMenu(ActionEvent event)    { abrirMenu(event); }
+    @FXML public void irARegistro(ActionEvent event) { abrirRegistro(event); }
+    @FXML public void irAConsulta(ActionEvent event) {  /**/  }
+
+    @FXML private void onVolverMenu(ActionEvent event) { abrirMenu(event); }
+
+    @FXML private void salir(ActionEvent e) { System.exit(0); }
+
     @FXML private void acercaDe(ActionEvent e) {
         Alert info = new Alert(Alert.AlertType.INFORMATION);
         info.setHeaderText("Sistema de Solicitudes");
         info.setContentText("Versión 1.0 - Semana 5\n");
         info.showAndWait();
-    }
-
-    @FXML
-    public void irAConsulta(ActionEvent event) {
-        // Ya estamos en esta ventana. El MenuItem está desactivado.
-        // Este metodo existe por referencia del FXML
     }
 
 }

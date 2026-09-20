@@ -135,41 +135,33 @@
                         <Font name="Roboto Light" size="21.0" />
                      </font>
                   </Label>
+                  <VBox spacing="15.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-text-fill: #64748b; -fx-font-size: 13px; -fx-font-family: 'Roboto Light';" text="Haz doble clic sobre un registro para consultar el detalle completo del cliente." />
 
-    <children>
-        <VBox spacing="15.0" style="-fx-background-color: #1E293B;                    -fx-border-color: linear-gradient(to right, #8B5CF6, #EC4899, #3B82F6);                    -fx-border-width: 2.5px;                    -fx-border-radius: 12;                    -fx-background-radius: 12;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-            <MenuBar>
-                <menus>
-                    <Menu text="Navegación">
-                        <items>
-                            <MenuItem fx:id="miIrMenu"     text="Menú Principal" onAction="#irAlMenu"/>
-                            <MenuItem fx:id="miIrRegistro" text="Registro"       onAction="#irARegistro"/>
-                            <MenuItem fx:id="miIrConsulta" text="Consulta"       onAction="#irAConsulta"/>
-                        </items>
-                    </Menu>
-                </menus>
-            </MenuBar>
-            <padding>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-            <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: #64748b; -fx-font-size: 14px; -fx-font-family: 'Roboto Light'; -fx-font-weight: bold;" text="Buscar:" />
+                              <TextField fx:id="txtBuscar" promptText="Buscar por nombre o ciudad..." HBox.hgrow="ALWAYS" />
+                              <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#onBuscarClick" style="-fx-background-color: #4a6670; -fx-text-fill: white; -fx-font-family: 'Roboto Light'; -fx-cursor: hand;" text="Buscar" />
+                           </children>
+                        </HBox>
 
-                  <Label style="-fx-text-fill: #64748b; -fx-font-size: 13px; -fx-font-family: 'Roboto Light';" text="Haz doble clic sobre un registro para consultar el detalle completo del cliente." />
-
-                  <TableView fx:id="tblClientes" onMouseClicked="#onTableClicked" style="-fx-background-color: white; -fx-border-color: #cfd8d7; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-family: 'Roboto Light'; -fx-selection-bar: #b5c9c3; -fx-selection-bar-non-focused: #cfd8d7;" VBox.vgrow="ALWAYS">
-                     <columns>
-                        <TableColumn fx:id="colNombre" prefWidth="180.0" text="Nombre Completo" />
-                        <TableColumn fx:id="colTipoCliente" prefWidth="120.0" text="Tipo Cliente" />
-                        <TableColumn fx:id="colCiudad" prefWidth="110.0" text="Ciudad" />
-                        <TableColumn fx:id="colFechaNacimiento" prefWidth="130.0" text="Fecha Nacimiento" />
-                        <TableColumn fx:id="colTipoSolicitud" prefWidth="140.0" text="Tipo Solicitud" />
-                        <TableColumn fx:id="colFechaHora" prefWidth="160.0" text="Registrado" />
-
-                    </columns>
-                    <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
+                        <TableView fx:id="tblClientes" onMouseClicked="#onTableClicked" style="-fx-background-color: white; -fx-border-color: #cfd8d7; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-family: 'Roboto Light'; -fx-selection-bar: #b5c9c3; -fx-selection-bar-non-focused: #cfd8d7;" VBox.vgrow="ALWAYS">
+                           <columns>
+                              <TableColumn fx:id="colNombre" prefWidth="180.0" text="Nombre Completo" />
+                              <TableColumn fx:id="colTipoCliente" prefWidth="120.0" text="Tipo Cliente" />
+                              <TableColumn fx:id="colCiudad" prefWidth="110.0" text="Ciudad" />
+                              <TableColumn fx:id="colFechaNacimiento" prefWidth="130.0" text="Fecha Nacimiento" />
+                              <TableColumn fx:id="colTipoSolicitud" prefWidth="140.0" text="Tipo Solicitud" />
+                              <TableColumn fx:id="colFechaHora" prefWidth="160.0" text="Registrado" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </VBox>
                </children>
             </VBox>
          </children>

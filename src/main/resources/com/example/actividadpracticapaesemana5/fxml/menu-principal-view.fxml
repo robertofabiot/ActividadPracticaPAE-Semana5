@@ -14,128 +14,130 @@
 
     <top>
         <VBox>
-            <MenuBar>
-                <menus>
-                    <Menu text="Archivo">
-                        <items>
-                            <MenuItem text="Registrar Cliente" onAction="#abrirRegistro"/>
-                            <MenuItem text="Consultar Clientes" onAction="#abrirConsulta"/>
-                            <SeparatorMenuItem/>
-                            <MenuItem text="Cerrar Sesión" onAction="#cerrarSesion"/>
-                            <MenuItem text="Salir" onAction="#salir"/>
-                        </items>
-                    </Menu>
-                    <Menu text="Navegación">
-                        <items>
-                            <MenuItem fx:id="miIrMenu"     text="Menú Principal" onAction="#irAlMenu"/>
-                            <MenuItem fx:id="miIrRegistro" text="Registro"       onAction="#abrirRegistro"/>
-                            <MenuItem fx:id="miIrConsulta" text="Consulta"       onAction="#abrirConsulta"/>
-                        </items>
-                    </Menu>
-                    <Menu text="Ayuda">
-                        <items>
-                            <MenuItem text="Acerca de..." onAction="#acercaDe"/>
-                        </items>
-                    </Menu>
-                </menus>
-            </MenuBar>
-            <ToolBar fx:id="toolBar" style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-width: 0 0 1 0; -fx-padding: 6 16 6 16;">
-               <items>
-                  <Button mnemonicParsing="false" onAction="#abrirMenu" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/volver.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <tooltip>
-                        <Tooltip text="Volver al Menú Principal" />
-                     </tooltip>
-                  </Button>
-                  <Separator orientation="VERTICAL" />
-                  <Button mnemonicParsing="false" onAction="#abrirRegistro" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/agregar.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <tooltip>
-                        <Tooltip text="Registrar Cliente" />
-                     </tooltip>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#abrirConsulta" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/consulta.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <tooltip>
-                        <Tooltip text="Consultar Clientes" />
-                     </tooltip>
-                  </Button>
-                  <Separator orientation="VERTICAL" />
-                  <Button mnemonicParsing="false" onAction="#salir" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/cerrar.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <tooltip>
-                        <Tooltip text="Cerrar el Programa" />
-                     </tooltip>
-                  </Button>
-               </items>
-            </ToolBar>
-         </children>
-      </VBox>
-   </top>
-   <center>
-      <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="95.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/logo.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="lblBienvenida" style="-fx-font-family: 'Roboto Light'; -fx-font-weight: bold; -fx-font-size: 26px;" text="Sistema de Clientes" textFill="#4a6670">
-               <font>
-                  <Font name="Roboto Light" size="26.0" />
-               </font>
-               <contextMenu>
-                  <ContextMenu>
-                     <items>
-                        <MenuItem onAction="#abrirRegistro" text="Ir a Registro" />
-                        <MenuItem onAction="#abrirConsulta" text="Ir a Consulta" />
-                        <SeparatorMenuItem />
-                        <MenuItem onAction="#cerrarSesion" text="Cerrar Sesión" />
-                     </items>
-                  </ContextMenu>
-               </contextMenu>
-            </Label>
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu text="Archivo">
+                            <items>
+                                <MenuItem text="Registrar Cliente" onAction="#abrirRegistro"/>
+                                <MenuItem text="Consultar Clientes" onAction="#abrirConsulta"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Cerrar Sesión" onAction="#cerrarSesion"/>
+                                <MenuItem text="Salir" onAction="#salir"/>
+                            </items>
+                        </Menu>
+                        <Menu text="Navegación">
+                            <items>
+                                <MenuItem fx:id="miIrMenu"     text="Menú Principal" onAction="#irAlMenu"/>
+                                <MenuItem fx:id="miIrRegistro" text="Registro"       onAction="#abrirRegistro"/>
+                                <MenuItem fx:id="miIrConsulta" text="Consulta"       onAction="#abrirConsulta"/>
+                            </items>
+                        </Menu>
+                        <Menu text="Ayuda">
+                            <items>
+                                <MenuItem text="Acerca de..." onAction="#acercaDe"/>
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <ToolBar fx:id="toolBar" style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-width: 0 0 1 0; -fx-padding: 6 16 6 16;">
+                   <items>
+                      <Button mnemonicParsing="false" onAction="#irAlMenu" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
+                         <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                               <image>
+                                  <Image url="@../icons/volver.png" />
+                               </image>
+                            </ImageView>
+                         </graphic>
+                         <tooltip>
+                            <Tooltip text="Volver al Menú Principal" />
+                         </tooltip>
+                      </Button>
+                      <Separator orientation="VERTICAL" />
+                      <Button mnemonicParsing="false" onAction="#abrirRegistro" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
+                         <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                               <image>
+                                  <Image url="@../icons/agregar.png" />
+                               </image>
+                            </ImageView>
+                         </graphic>
+                         <tooltip>
+                            <Tooltip text="Registrar Cliente" />
+                         </tooltip>
+                      </Button>
+                      <Button mnemonicParsing="false" onAction="#abrirConsulta" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
+                         <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                               <image>
+                                  <Image url="@../icons/consulta.png" />
+                               </image>
+                            </ImageView>
+                         </graphic>
+                         <tooltip>
+                            <Tooltip text="Consultar Clientes" />
+                         </tooltip>
+                      </Button>
+                      <Separator orientation="VERTICAL" />
+                      <Button mnemonicParsing="false" onAction="#salir" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-border-color: #94a3b8; -fx-border-width: 1.5; -fx-border-radius: 6; -fx-cursor: hand;">
+                         <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                               <image>
+                                  <Image url="@../icons/cerrar.png" />
+                               </image>
+                            </ImageView>
+                         </graphic>
+                         <tooltip>
+                            <Tooltip text="Cerrar el Programa" />
+                         </tooltip>
+                      </Button>
+                   </items>
+                </ToolBar>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="95.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                      <Image url="@../icons/logo.png" />
+                   </image>
+                </ImageView>
+                <Label fx:id="lblBienvenida" style="-fx-font-family: 'Roboto Light'; -fx-font-weight: bold; -fx-font-size: 26px;" text="Sistema de Clientes" textFill="#4a6670">
+                   <font>
+                      <Font name="Roboto Light" size="26.0" />
+                   </font>
+                   <contextMenu>
+                      <ContextMenu>
+                         <items>
+                            <MenuItem onAction="#abrirRegistro" text="Ir a Registro" />
+                            <MenuItem onAction="#abrirConsulta" text="Ir a Consulta" />
+                            <SeparatorMenuItem />
+                            <MenuItem onAction="#cerrarSesion" text="Cerrar Sesión" />
+                         </items>
+                      </ContextMenu>
+                   </contextMenu>
+                </Label>
 
-            <HBox alignment="CENTER" spacing="30.0">
-                <Button text="Registrar Cliente"
-                        onAction="#abrirRegistro"
-                        prefWidth="200" prefHeight="80"
-                        style="-fx-font-size: 16px;"/>
+                <HBox alignment="CENTER" spacing="30.0">
+                    <children>
+                        <Button text="Registrar Cliente"
+                                onAction="#abrirRegistro"
+                                prefWidth="200" prefHeight="80"
+                                style="-fx-font-size: 16px;"/>
 
-                <Button text="Consultar Clientes"
-                        onAction="#abrirConsulta"
-                        prefWidth="200" prefHeight="80"
-                        style="-fx-font-size: 16px;"/>
+                        <Button text="Consultar Clientes"
+                                onAction="#abrirConsulta"
+                                prefWidth="200" prefHeight="80"
+                                style="-fx-font-size: 16px;"/>
+                    </children>
+                </HBox>
 
-
-            </HBox>
-
-            <Label text="Tip: clic derecho sobre el título para ver más opciones."
-                   style="-fx-text-fill: gray;"/>
+                <Label text="Tip: clic derecho sobre el título para ver más opciones."
+                       style="-fx-text-fill: gray;"/>
+            </children>
         </VBox>
     </center>
     <bottom>
