@@ -3,6 +3,7 @@ package com.example.actividadpracticapaesemana5.controller;
 import com.example.actividadpracticapaesemana5.model.Cliente;
 import com.example.actividadpracticapaesemana5.util.Navegacion;
 import com.example.actividadpracticapaesemana5.util.Sesion;
+import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,11 +47,23 @@ public class ClienteConsultaController {
         colCiudad.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
         colFechaNacimiento.setCellValueFactory(new PropertyValueFactory<>("fechaComoTexto"));
         colTipoSolicitud.setCellValueFactory(new PropertyValueFactory<>("tipoSolicitud"));
-        // El getter en Cliente se llama getFechaHoraRegistroComoTexto -> propiedad "fechaHoraRegistroComoTexto"
         colFechaHora.setCellValueFactory(new PropertyValueFactory<>("fechaHoraRegistroComoTexto"));
 
-        // Cargar los clientes registrados desde Sesion
         cargarClientes();
+
+        InvalidationListener listener = observable ->
+                actualizarEstadoBoton();
+
+        txtBuscar.textProperty().addListener(listener);
+
+        actualizarEstadoBoton();
+
+    }
+
+    private void actualizarEstadoBoton(){
+        boolean entradaVacia = txtBuscar.getText().trim().isEmpty();
+
+        btnBuscar.setDisable(entradaVacia);
     }
 
     @FXML
@@ -105,7 +118,6 @@ public class ClienteConsultaController {
     }
 
     @FXML public void abrirConsulta(ActionEvent event) {
-        // Ya estamos en esta ventana.
     }
 
     @FXML public void cerrarSesion(ActionEvent event) {
