@@ -203,9 +203,9 @@
                   <Label fx:id="lblEstado" style="-fx-text-fill: #4a6670; -fx-font-family: 'Roboto Light';" text="Listo para registrar un cliente." />
                   <HBox alignment="CENTER_RIGHT" spacing="10">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#limpiarFormulario" style="-fx-background-color: #f1f5f9; -fx-text-fill: #4a6670; -fx-border-color: #cfd8d7; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-family: 'Roboto Light'; -fx-padding: 7 16 7 16;" text="Limpiar" />
-                        <Button mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: #f1f5f9; -fx-text-fill: #64748b; -fx-border-color: #cfd8d7; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-family: 'Roboto Light'; -fx-padding: 7 16 7 16;" text="Cancelar" />
-                        <Button defaultButton="true" mnemonicParsing="false" onAction="#guardarCliente" style="-fx-background-color: #4a6670; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-family: 'Roboto Light'; -fx-padding: 7 20 7 20;" text="Guardar" />
+                         <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarFormulario" style="-fx-background-color: #f1f5f9; -fx-text-fill: #4a6670; -fx-border-color: #cfd8d7; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-family: 'Roboto Light'; -fx-padding: 7 16 7 16;" text="Limpiar" />
+                        <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: #f1f5f9; -fx-text-fill: #64748b; -fx-border-color: #cfd8d7; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-family: 'Roboto Light'; -fx-padding: 7 16 7 16;" text="Cancelar" />
+                        <Button fx:id="btnRegistrar" defaultButton="true" mnemonicParsing="false" onAction="#guardarCliente" style="-fx-background-color: #4a6670; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-family: 'Roboto Light'; -fx-padding: 7 20 7 20;" text="Guardar" />
                      </children>
                   </HBox>
                </children>
