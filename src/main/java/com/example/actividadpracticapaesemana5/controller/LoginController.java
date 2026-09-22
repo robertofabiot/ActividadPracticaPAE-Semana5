@@ -3,6 +3,7 @@ package com.example.actividadpracticapaesemana5.controller;
 import com.example.actividadpracticapaesemana5.model.Usuario;
 import com.example.actividadpracticapaesemana5.util.SceneManager;
 import com.example.actividadpracticapaesemana5.util.Sesion;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -32,6 +33,14 @@ public class LoginController {
         listaUsuarios = new ArrayList<>();
         // Primer elemento con nombre admin y contraseña admin
         listaUsuarios.add(new Usuario("admin", "admin"));
+
+        ChangeListener<String> listener = (observable, oldValue, newValue) ->
+                actualizarEstadoBoton();
+
+        txtUsuario.textProperty().addListener(listener);
+        txtPassword.textProperty().addListener(listener);
+
+        actualizarEstadoBoton();
     }
 
     @FXML
@@ -94,5 +103,13 @@ public class LoginController {
         if (this.listaUsuarios != null && usuario != null) {
             this.listaUsuarios.add(usuario);
         }
+    }
+
+    private void actualizarEstadoBoton(){
+        boolean usuarioVacio =  txtUsuario.getText().trim().isEmpty();
+        boolean passwordVacia = txtPassword.getText().trim().isEmpty();
+
+        btnEntrar.setDisable(usuarioVacio || passwordVacia);
+
     }
 }
